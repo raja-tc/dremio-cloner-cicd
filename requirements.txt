@@ -1,0 +1,2 @@
+mo-sql-parsing==8.146.22081
+requests==2.27.1

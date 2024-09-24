@@ -1,0 +1,70 @@
+{"dremio_cloner": [
+  {"command":"get"},
+  {"source": [
+	{"endpoint": "http://a238046fce307400698f0af7b5a87048-879411522.us-east-2.elb.amazonaws.com:9047/"},
+	{"username": "raja.tallapaneni"},
+	{"password": "dremio123"},
+	{"verify_ssl": "False"},
+	{"is_community_edition": "False"},
+	{"graph_api_support": "True"}]
+  },
+  {"target": [
+	{"filename":"/Users/rajatallapaneni/marriott/cicd/dremio-cloner/dremio_read.json"},
+	{"overwrite": "True"},
+	{"separate_sql_and_metadata_files": "False"}
+  ]
+  },
+  {"options": [
+	{"logging.level":"logging.DEBUG"},
+	{"logging.format":"%(levelname)s:%(asctime)s:%(message)s"},
+	{"logging.filename":"/Users/rajatallapaneni/marriott/cicd/dremio-cloner/dremio-read.log"},
+	{"logging.verbose": "False"},
+
+	{"max_errors":"9999"},
+	{"http_timeout":"10"},
+
+	{"user.process_mode":"process"},
+	{"group.process_mode":"process"},
+	{"space.process_mode":"process"},
+	{"source.process_mode":"process"},
+	{"reflection.process_mode": "process"},
+	{"wlm.queue.process_mode": "process"},
+	{"wlm.rule.process_mode": "process"},
+	{"wiki.process_mode": "process"},
+	{"tag.process_mode": "process"},
+	{"home.process_mode": "process"},
+	{"folder.process_mode": "process"},
+	{"vds.process_mode": "process"},
+	{"pds.process_mode": "process"},
+
+	{"space.filter": "*"},
+	{"space.filter.names": []},
+	{"space.exclude.filter": ""},
+	{"space.folder.filter":"*"},
+	{"space.folder.filter.paths": [""]},
+	{"space.folder.exclude.filter":""},
+	{"space.folder.exclude.filter.paths": []},
+
+	{"source.filter":"*"},
+	{"source.filter.names": []},
+	{"source.filter.types": []},
+	{"source.exclude.filter":""},
+	{"source.folder.filter":"*"},
+	{"source.folder.filter.paths": []},
+	{"source.folder.exclude.filter":""},
+
+	{"pds.filter":"*"},
+	{"pds.filter.names": []},
+	{"pds.exclude.filter":""},
+	{"pds.list.useapi":"False"},
+
+	{"vds.filter":"*"},
+	{"vds.filter.names": []},
+	{"vds.filter.tag":""},
+	{"vds.exclude.filter":""},
+	{"vds.exclude.filter.paths": []},
+	{"vds.dependencies.process_mode":"get"},
+
+  	{"reflection.only_for_matching_vds":"True"}]
+  }]
+}
