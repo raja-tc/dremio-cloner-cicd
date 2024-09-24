@@ -9,7 +9,7 @@
 	{"graph_api_support": "True"}]
   },
   {"target": [
-	{"filename":"/Users/rajatallapaneni/marriott/cicd/dremio-cloner/dremio_read.json"},
+	{"filename":"dremio_DEV_export.json"},
 	{"overwrite": "True"},
 	{"separate_sql_and_metadata_files": "False"}
   ]
@@ -17,7 +17,7 @@
   {"options": [
 	{"logging.level":"logging.DEBUG"},
 	{"logging.format":"%(levelname)s:%(asctime)s:%(message)s"},
-	{"logging.filename":"/Users/rajatallapaneni/marriott/cicd/dremio-cloner/dremio-read.log"},
+	{"logging.filename":"dremio-cloner-get.log"},
 	{"logging.verbose": "False"},
 
 	{"max_errors":"9999"},
