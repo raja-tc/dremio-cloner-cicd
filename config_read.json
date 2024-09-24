@@ -9,7 +9,7 @@
 	{"graph_api_support": "True"}]
   },
   {"target": [
-	{"filename":"dremio_DEV_export.json"},
+	{"filename":"Dremio_DEV_export.json"},
 	{"overwrite": "True"},
 	{"separate_sql_and_metadata_files": "False"}
   ]
