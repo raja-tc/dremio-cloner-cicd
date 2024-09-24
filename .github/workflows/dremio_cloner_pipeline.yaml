@@ -62,10 +62,10 @@ jobs:
           CLOUD_PAT: ${{ secrets.CLOUD_PAT }}
         run: |
           git clone https://github.com/deane-dremio/dremio-cloner;
-          cp config_write_dremio_cloud_TO_PROD.json dremio-cloner/src/config_write_dremio_cloud_TO_PROD.json;
+          cp config_write.json dremio-cloner/src/config_write_dremio_cloud_TO_PROD.json;
           cp Dremio_DEV_export.json dremio-cloner/src/Dremio_DEV_export.json;
           cd dremio-cloner/src;
-          python3 dremio_cloner.py config_write_dremio_cloud_TO_PROD.json -p "$CLOUD_PAT";
+          python3 dremio_cloner.py config_write_dremio_cloud_TO_PROD.json;
       - name: Upload Dremio Cloner Put Logs
         uses: actions/upload-artifact@v3
         with:
