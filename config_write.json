@@ -16,7 +16,7 @@
 
 		{"logging.level":"logging.DEBUG"},
 		{"logging.format":"%(levelname)s:%(asctime)s:%(message)s"},
-		{"logging.filename":"dremio-cloner-put.log"},
+		{"logging.filename":"dremio_cloner_put_log.log"},
 	  	{"logging.verbose": "False"},
 
 		{"max_errors":"9999"},
