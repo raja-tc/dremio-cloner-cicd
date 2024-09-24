@@ -12,7 +12,7 @@
 	},
 	{"options": [
 
-	  	{"dry_run":"True"},
+	  	{"dry_run":"False"},
 
 		{"logging.level":"logging.DEBUG"},
 		{"logging.format":"%(levelname)s:%(asctime)s:%(message)s"},
