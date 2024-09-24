@@ -22,7 +22,7 @@ jobs:
           CLOUD_PAT: ${{ secrets.CLOUD_PAT }}
         run: |
           git clone https://github.com/deane-dremio/dremio-cloner;
-          cp config_read_dremio_cloud_FROM_DEV.json dremio-cloner/src/config_read_dremio_cloud_FROM_DEV.json;
+          cp config_read.json dremio-cloner/src/config_read_dremio_cloud_FROM_DEV.json;
           cd dremio-cloner/src;
           python3 dremio_cloner.py config_read_dremio_cloud_FROM_DEV.json -p "$CLOUD_PAT";
       - name: Upload Dremio Cloner Get results
