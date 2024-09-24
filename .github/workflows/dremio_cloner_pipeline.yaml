@@ -1,0 +1,74 @@
+name: Dremio Cloner Dev To Prod Pipeline
+
+on: [push]
+jobs:
+
+  dremio_cloner_get:
+    name: Dremio Cloner Get
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Check out and run Dremio Cloner Get
+        shell: bash
+        env:
+          CLOUD_PAT: ${{ secrets.CLOUD_PAT }}
+        run: |
+          git clone https://github.com/deane-dremio/dremio-cloner;
+          cp config_read_dremio_cloud_FROM_DEV.json dremio-cloner/src/config_read_dremio_cloud_FROM_DEV.json;
+          cd dremio-cloner/src;
+          python3 dremio_cloner.py config_read_dremio_cloud_FROM_DEV.json -p "$CLOUD_PAT";
+      - name: Upload Dremio Cloner Get results
+        uses: actions/upload-artifact@v3
+        with:
+          name: Dremio_DEV_export.json
+          path: dremio-cloner/src/Dremio_DEV_export.json
+        if: ${{ always() }}
+      - name: Upload Dremio Cloner Get Logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: dremio_cloner_get_log.log
+          path: dremio-cloner/src/dremio_cloner_get_log.log
+        if: ${{ always() }}
+
+  dremio_cloner_put:
+    name: Dremio Cloner Put
+    needs: dremio_cloner_get
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Download Dremio Cloner Get results
+        uses: actions/download-artifact@v3
+        with:
+          name: Dremio_DEV_export.json
+      - name: Check out and run Dremio Cloner Put
+        shell: bash
+        env:
+          CLOUD_PAT: ${{ secrets.CLOUD_PAT }}
+        run: |
+          git clone https://github.com/deane-dremio/dremio-cloner;
+          cp config_write_dremio_cloud_TO_PROD.json dremio-cloner/src/config_write_dremio_cloud_TO_PROD.json;
+          cp Dremio_DEV_export.json dremio-cloner/src/Dremio_DEV_export.json;
+          cd dremio-cloner/src;
+          python3 dremio_cloner.py config_write_dremio_cloud_TO_PROD.json -p "$CLOUD_PAT";
+      - name: Upload Dremio Cloner Put Logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: dremio_cloner_put_log.log
+          path: dremio-cloner/src/dremio_cloner_put_log.log
+        if: ${{ always() }}
