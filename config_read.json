@@ -3,7 +3,7 @@
   {"source": [
 	{"endpoint": "http://a238046fce307400698f0af7b5a87048-879411522.us-east-2.elb.amazonaws.com:9047/"},
 	{"username": "raja.tallapaneni"},
-	{"password": "xxxxx"},
+	{"password": ""},
 	{"verify_ssl": "False"},
 	{"is_community_edition": "False"},
 	{"graph_api_support": "True"}]
