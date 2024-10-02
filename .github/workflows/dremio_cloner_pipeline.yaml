@@ -19,12 +19,12 @@ jobs:
       - name: Check out and run Dremio Cloner Get
         shell: bash
         env:
-          CLOUD_PAT: ${{ secrets.CLOUD_PAT }}
+          SOURCE_PAT: ${{ secrets.SOURCE_PAT }}
         run: |
           git clone https://github.com/deane-dremio/dremio-cloner;
           cp config_read.json dremio-cloner/src/config_read.json;
           cd dremio-cloner/src;
-          python3 dremio_cloner.py config_read.json;
+          python3 dremio_cloner.py config_read.json -p "$SOURCE_PAT";
       - name: Upload Dremio Cloner Get results
         uses: actions/upload-artifact@v3
         with:
@@ -59,13 +59,13 @@ jobs:
       - name: Check out and run Dremio Cloner Put
         shell: bash
         env:
-          CLOUD_PAT: ${{ secrets.CLOUD_PAT }}
+          TARGET_PAT: ${{ secrets.TARGET_PAT }}
         run: |
           git clone https://github.com/deane-dremio/dremio-cloner;
           cp config_write.json dremio-cloner/src/config_write_dremio_cloud_TO_PROD.json;
           cp Dremio_DEV_export.json dremio-cloner/src/Dremio_DEV_export.json;
           cd dremio-cloner/src;
-          python3 dremio_cloner.py config_write_dremio_cloud_TO_PROD.json;
+          python3 dremio_cloner.py config_write_dremio_cloud_TO_PROD.json -p "$TARGET_PAT";
       - name: Upload Dremio Cloner Put Logs
         uses: actions/upload-artifact@v3
         with:
