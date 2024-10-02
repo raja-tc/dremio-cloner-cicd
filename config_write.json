@@ -48,7 +48,7 @@
 		{"vds.ignore_missing_acl_group":"True"},
 
 	  	{"space.filter": "*"},
-		{"space.filter.names": []},
+		{"space.filter.names": ["Demo"]},
 		{"space.exclude.filter": ""},
 		{"space.folder.filter":"*"},
 		{"space.folder.filter.paths": []},
@@ -56,7 +56,7 @@
 		{"space.folder.exclude.filter.paths": []},
 
 		{"source.filter":"*"},
-		{"source.filter.names": ["Demo"]},
+		{"source.filter.names": []},
 		{"source.filter.types": []},
 		{"source.exclude.filter":""},
 		{"source.folder.filter":"*"},
