@@ -56,7 +56,7 @@
 		{"space.folder.exclude.filter.paths": []},
 
 		{"source.filter":"*"},
-		{"source.filter.names": []},
+		{"source.filter.names": ["Demo"]},
 		{"source.filter.types": []},
 		{"source.exclude.filter":""},
 		{"source.folder.filter":"*"},
