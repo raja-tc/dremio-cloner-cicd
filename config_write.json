@@ -3,7 +3,7 @@
 	{"target": [
 	    {"endpoint": "http://34.30.176.141:9047/"},
 	    {"username": "raja.tallapaneni"},
-	    {"password": "xxxx"},
+	    {"password": ""},
 	    {"verify_ssl": "True"},
 	  	{"is_community_edition": "False"}]
 	},
